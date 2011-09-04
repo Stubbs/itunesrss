@@ -3,3 +3,5 @@ ItunesRSS
 Very simple Django app that lets you enter details of a podcast and then create an RSS feed that iTunes will understand.
 
 It's designed to run on Google App Engine, but there's no reason it shouldn't run on a normal host.
+
+It also makes use of http://www.allbuttonspressed.com/projects/django-nonrel from All Buttons Pressed in order to run on App Engine properly.
