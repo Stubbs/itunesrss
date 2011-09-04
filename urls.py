@@ -1,17 +1,12 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls.defaults import *
+from rss.feeds import iTunesPodcastsFeed
+from django.contrib import admin
+admin.autodiscover()
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+handler500 = 'djangotoolbox.errorviews.server_error'
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'itunesxml.views.home', name='home'),
-    # url(r'^itunesxml/', include('itunesxml.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    ('^_ah/warmup$', 'djangoappengine.views.warmup'),
+	(r'^podcast/rss/$', iTunesPodcastsFeed()),
+	 url(r'^admin/', include(admin.site.urls)),
 )

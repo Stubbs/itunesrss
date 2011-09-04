@@ -21,6 +21,22 @@ indexes:
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
 
+- kind: podcast_childcategory
+  properties:
+  - name: parent
+  - name: slug
+
+- kind: podcast_enclosure
+  properties:
+  - name: episode_id
+  - name: mime
+  - name: file
+
+- kind: podcast_show
+  properties:
+  - name: organization
+  - name: slug
+
 - kind: rss_podcast
   properties:
   - name: __key__
