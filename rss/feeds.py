@@ -22,7 +22,10 @@ class iTunesPodcastsFeedGenerator(Rss201rev2Feed):
     handler.addQuickElement(u'itunes:name', self.feed['iTunes_name'])
     handler.addQuickElement(u'itunes:email', self.feed['iTunes_email'])
     handler.endElement(u"itunes:owner")
-    handler.addQuickElement(u'itunes:image', self.feed['iTunes_image_url'])
+    handler.startElement(u'itunes:category', attrs={'text': "Sports & Recreation"})
+    handler.addQuickElement(u'itunes:category', contents=None, attrs={'text': "Professional"})
+    handler.endElement(u'itunes:category')
+    #handler.addQuickElement(u'itunes:image', self.feed['iTunes_image_url'])
 
   def add_item_elements(self,  handler, item):
     super(iTunesPodcastsFeedGenerator, self).add_item_elements(handler, item)
@@ -53,16 +56,16 @@ class iTunesPodcastsFeed(Feed):
   """
   A feed of podcasts for iTunes and other compatible podcatchers.
   """
-  title = "Blackburn Rovers Podcast (Unofficial)"
+  title = "The One Percenters"
   link = "/podcasts/iTunes/"
-  author_name = 'Stuart Grimshaw + Guests'
+  author_name = 'Bombom'
   description = "Covering all the latest Blackburn Rovers news & games."
   subtitle = "Covering all the latest Blackburn Rovers news & games."
   summary = "Covering all the latest Blackburn Rovers news & games."
-  iTunes_name = u'Stuart Grimshaw'
-  iTunes_email = u'stuart.grimshaw@gmail.com'
-  iTunes_image_url = u''
-  iTunes_explicit = u'no'
+  iTunes_name = u'Bombom'
+  iTunes_email = u'dale@bombom.adsl24.co.uk'
+  #iTunes_image_url = u''
+  iTunes_explicit = u'yes'
   feed_type = iTunesPodcastsFeedGenerator
   feed_copyright = "Copyright %s by the The Author." % datetime.date.today().year
   
@@ -76,7 +79,7 @@ class iTunesPodcastsFeed(Feed):
     extra = {}
     extra['iTunes_name'] = self.iTunes_name
     extra['iTunes_email'] = self.iTunes_email
-    extra['iTunes_image_url'] = self.iTunes_image_url
+    #extra['iTunes_image_url'] = self.iTunes_image_url
     extra['iTunes_explicit'] = self.iTunes_explicit
     return extra
 
