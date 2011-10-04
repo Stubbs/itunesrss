@@ -56,7 +56,7 @@ class iTunesPodcastsFeed(Feed):
   """
   A feed of podcasts for iTunes and other compatible podcatchers.
   """
-  title = "The One Percenters"
+  title = "The Vital Blackburn Podcast"
   link = "/podcasts/iTunes/"
   author_name = 'Bombom'
   description = "Covering all the latest Blackburn Rovers news & games."
@@ -65,7 +65,7 @@ class iTunesPodcastsFeed(Feed):
   iTunes_name = u'Bombom'
   iTunes_email = u'dale@bombom.adsl24.co.uk'
   #iTunes_image_url = u''
-  iTunes_explicit = u'yes'
+  iTunes_explicit = u'no'
   feed_type = iTunesPodcastsFeedGenerator
   feed_copyright = "Copyright %s by the The Author." % datetime.date.today().year
   
